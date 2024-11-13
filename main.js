@@ -36,7 +36,7 @@ app.get("/", function (req, res){
 
 //index
 app.get("/index", function (req, res) {
-    res.sendFile(__dirname + "./html/index.html");
+    res.sendFile(__dirname + "/html/index.html");
 });
 
 //create

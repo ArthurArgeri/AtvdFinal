@@ -20,19 +20,20 @@ async function carregarEmprestimo() {
     const mostrarUrl = await fetch("http://localhost:3031/mostrar");
     const resposta = await mostrarUrl.json();
 
-    const container = document.getElementById("divCards");
+    const container = document.getElementById("divRes");
     container.innerHTML = "";
 
     resposta.forEach((cardEmprestimo) => {
         const emprestimoTabela = document.createElement('div');
         emprestimoTabela.innerHTML = `
             <div>
-                <table class="table table-sm">
+                <table class="table table-striped-columns">
                     <tr>
+                        <th><h5>Titulo do livro</h5></th>
                         <th><h5>Autor</h5></th>
                         <th><h5>Genero</h5></th>
-                        <th><h5>data_emprestimo</h5></th>
-                        <th><h5>data_devolucao</h5></th>
+                        <th><h5>data do emprestimo</h5></th>
+                        <th><h5>data de devolucao</h5></th>
                     </tr>
                     <tr>
                         <td>${cardEmprestimo.titulo_livro}</td>
@@ -41,17 +42,24 @@ async function carregarEmprestimo() {
                         <td>${cardEmprestimo.data_emprestimo}</td>
                         <td>${cardEmprestimo.data_devolucao}</td>
                     </tr>
+                    <tr>
+                    	<td>
+			                <a href="#" class="btn btn-primary">Criar</a>
+			                <a href="#" class="btn btn-info">Editar</a>
+			                <a href="#" class="btn btn-danger">Deletar</a>
+		            	</td>
+		            	<td></td>
+		            	<td></td>
+		            	<td></td>
+		            	<td></td>
+		            </tr>
                 </table>
-                <a href="#" class="btn btn-primary">Criar</a>
-                <a href="#" class="btn btn-info">Editar</a>
-                <a href="#" class="btn btn-danger">Deletar</a>
             </div>
         `;
 
         container.appendChild(emprestimoTabela)
     });
 }
-window.onload = carregarEmprestimo();
 /* 
 //update
 function redirectUpdate(id) {
@@ -102,3 +110,4 @@ async function deletar(id) {
         alert("Erro ao deletar aluno.");
       }
 } */
+window.onload = carregarEmprestimo();

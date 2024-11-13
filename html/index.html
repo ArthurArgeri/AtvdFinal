@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,11 +15,127 @@
         crossorigin="anonymous"></script>
 
     <table class="table table-borderless">
-        <div id="divCards" name="divCards">
+   		
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        <div class='divRes' id="divRes" name="divRes">
         </div>
+        
     </table>
 
-<script src="consomeAPI.js"></script>
 </body>
+<style>
+body {
+    background-color: #f0f0f0;
+}
+th, td{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+table{
+	border: 2px solid black;
+  	border-radius: 50px;
+}
+h1 {
+	padding-bottom: 10px;
+}
+divRes {
+	margin: 5vw;
+	background-color: red;
+}
+</style>
+<script>
 
+
+async function criarEmprestimo() {
+  const titulo_livro = document.getElementById("titulo_livro").value;
+  const autor = document.getElementById("autor").value;
+  const genero = document.getElementById("genero").value;
+  const data_emprestimo = document.getElementById("data_emprestimo").value;
+  const data_devolucao = document.getElementById("data_devolucao").value;
+
+
+  const resposta = await fetch(`http://localhost:3031/create/${titulo_livro}/${autor}/${genero}/${data_emprestimo}/${data_devolucao}`);
+
+  if(resposta.ok) {
+      alert("Emprestimo criado com sucesso!");
+  }
+}
+
+
+async function carregarEmprestimo() {
+  const mostrarUrl = await fetch("http://localhost:3031/mostrar");
+  const resposta = await mostrarUrl.json();
+
+  const container = document.getElementById("divRes");
+  container.innerHTML = "";
+
+  resposta.forEach((cardEmprestimo) => {
+      const emprestimoTabela = document.createElement('div');
+      emprestimoTabela.innerHTML = `
+          <div class="divTable">
+              <table class="table table-striped-columns">
+                  <tr>
+                      <th><h5>Titulo do livro</h5></th>
+                      <th><h5>Autor</h5></th>
+                      <th><h5>Genero</h5></th>
+                      <th><h5>data do emprestimo</h5></th>
+                      <th><h5>data de devolucao</h5></th>
+                  </tr>
+                  <tr>
+                      <td>${cardEmprestimo.titulo_livro}</td>
+                      <td>${cardEmprestimo.autor}</td>
+                      <td>${cardEmprestimo.genero}</td>
+                      <td>${cardEmprestimo.data_emprestimo}</td>
+                      <td>${cardEmprestimo.data_devolucao}</td>
+                  </tr>
+                  <tr>
+                  	<td>
+			                <a href="#" class="btn btn-primary">Criar</a>
+			                <a href="#" class="btn btn-info">Editar</a>
+			                <a href="#" class="btn btn-danger">Deletar</a>
+		            	</td>
+		            	<td></td>
+		            	<td></td>
+		            	<td></td>
+		            	<td></td>
+		            </tr>
+              </table>
+          </div>
+      `;
+
+      container.appendChild(emprestimoTabela)
+  });
+}
+window.onload = carregarEmprestimo();
+</script>
 </html>

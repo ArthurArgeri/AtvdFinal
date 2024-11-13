@@ -1,0 +1,18 @@
+body {
+    background-color: #f0f0f0;
+    padding: 2vw;
+}
+th, td{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+table{
+	border: 3px solid #000000;
+}
+h1 {
+	padding-bottom: 10px;
+}
+divRes {
+	padding: 2vw;
+}
+
