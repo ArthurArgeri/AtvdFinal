@@ -1,18 +1,67 @@
 body {
-    background-color: #f0f0f0;
-    padding: 2vw;
+    background-color: rgb(212, 212, 212);
 }
-th, td{
-	padding-left: 15px;
-	padding-right: 15px;
+.divDados {
+	padding: 2vw;
 }
-table{
-	border: 3px solid #000000;
+.linha {
+	width: 100%;
+	border: 1px solid black;
+	margin-bottom: 1vw;
+}
+.dados {
+	margin-bottom: 1vw;
+	border: 3px solid black;
+	border-radius: 8px;
 }
 h1 {
-	padding-bottom: 10px;
+	text-decoration: underline;
+	color: black;
+	background-color: rgb(212, 212, 212);
 }
-divRes {
-	padding: 2vw;
+.thTitulo {
+	padding: 5px;
+	background-color: rgb(212, 212, 212) !important;
+}
+/** card */
+.card-header {
+	background-color: #adadad;
+}
+.card-body {
+	background-color: #e6e6e6;
+}
+th {
+	background-color: #e6e6e6 !important;
+}
+td {
+	background-color: #e6e6e6 !important;
+}
+.card {
+	position: relative;
+	flex: auto;
+}
+h5 {
+	text-decoration: underline;
+}
+
+/** navbar */
+.navbar-brand {
+	font-size: 50;
+	font-weight: 700;
+	margin-left: 1vw;
+	margin-right: 1vw;
+	text-decoration: underline;
+}
+.nav-link {
+	font-size: 50;
+	font-weight: 6s00;
+	color: black;
+	text-decoration: underline;
+}
+.fundoNav {
+	background-color: rgb(185, 185, 185) !important;
+}
+.navbar {
+	background-color: rgb(185, 185, 185) !important;
 }
 

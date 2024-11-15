@@ -83,6 +83,9 @@ app.get("/delete/:id", async function (req, res) {
     const deleted = await Emprestimo.destroy({
         where: { id: idNumber },
     });
+    res.json({
+        mensagem: "Emprestimo atualizado!",
+      });
 });
 
 app.listen(3031, function () {
