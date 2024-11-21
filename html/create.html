@@ -32,38 +32,38 @@
 
 <body>
 
-        <div class="divDados">
-          <h1>Criar Emprestimo</h1>
-          <div class="linha"></div>
+  <div class="divDados">
+    <h1>Criar Emprestimo</h1>
+    <div class="linha"></div>
           
-          <form method="POST" id="emprestimoForm">
+    <form method="POST" id="emprestimoForm">
             
-              <div class="mb-3">
-                <label for="titulo_livro" class="form-label">titulo</label>
-                <input type="text" class="form-control" id="titulo_livro" name="titulo_livro" required />
-              </div>
+      <div class="mb-3">
+        <label for="titulo_livro" class="form-label"><h5>titulo:</h5></label>
+        <input type="text" class="form-control" id="titulo_livro" name="titulo_livro" required />
+      </div>
               
-              <div class="mb-3">
-                <label for="autor" class="form-label">Autor</label>
-                <input type="text" class="form-control" id="autor" name="autor" required />
-              </div>
+      <div class="mb-3">
+        <label for="autor" class="form-label"><h5>Autor:</h5></label>
+        <input type="text" class="form-control" id="autor" name="autor" required />
+      </div>
               
-              <div class="mb-3">
-                <label for="genero" class="form-label">Genero</label>
-                <input type="text" class="form-control" id="genero" name="genero" required />
-        </div>
+      <div class="mb-3">
+          <label for="genero" class="form-label"><h5>Genero:</h5></label>
+          <input type="text" class="form-control" id="genero" name="genero" required />
+      </div>
       
-        <div class="mb-3">
-          <label for="data_emprestimo" class="form-label">Data do Emprestimo</label>
-          <input type="date" class="form-control" id="data_emprestimo" name="data_emprestimo" required />
-        </div>
+      <div class="mb-3">
+        <label for="data_emprestimo" class="form-label"><h5>Data do Emprestimo:</h5></label>
+        <input type="date" class="form-control" id="data_emprestimo" name="data_emprestimo" required />
+      </div>
       
-        <div class="mb-3">
-          <label for="data_devolucao" class="form-label">Data de Devolução</label>
-          <input type="date" class="form-control" id="data_devolucao" name="data_devolucao" required />
-        </div>
+      <div class="mb-3">
+        <label for="data_devolucao" class="form-label"><h5>Data de Devolução:</h5></label>
+        <input type="date" class="form-control" id="data_devolucao" name="data_devolucao" required />
+      </div>
       
-      <button onclick="criarEmprestimo(event)" class="btn btn-primary">Submit</button>
+      <button onclick="criarEmprestimo(event)" class="btn btn-secondary botaoCreate">Criar</button>
     </form>
   </div>
 </body>

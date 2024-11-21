@@ -58,6 +58,13 @@ app.get("/mostrar", async function (req, res) {
 
 });
 
+//mostrar um
+app.get("/mostrar/:id", async function (req, res) {
+    const { idB } = req.params;
+    const emprestimo = await Emprestimo.findAll(Sequelize.where(idB = emprestimo));
+    res.json(emprestimo)
+
+});
 //update
 app.get("/update/:id/:titulo_livro/:autor/:genero/:data_emprestimo/:data_devolucao", async function (req, res) {
     const { id, titulo_livro, autor, genero, data_emprestimo, data_devolucao } = req.params;
@@ -88,6 +95,6 @@ app.get("/delete/:id", async function (req, res) {
       });
 });
 
-app.listen(3032, function () {
+app.listen(3031, function () {
     console.log("Servidor rodando na porta 3032")
 });
