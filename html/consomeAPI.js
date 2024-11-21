@@ -1,19 +1,31 @@
 
 //criar Emprestimos 
-async function criarEmprestimo() {
+async function criarEmprestimo(event) {
+    event.preventDefault();
     const titulo_livro = document.getElementById("titulo_livro").value;
     const autor = document.getElementById("autor").value;
     const genero = document.getElementById("genero").value;
     const data_emprestimo = document.getElementById("data_emprestimo").value;
     const data_devolucao = document.getElementById("data_devolucao").value;
 
+    const urlCreate = `http://localhost:3031/create/${titulo_livro}/${autor}/${genero}/${data_emprestimo}/${data_devolucao}`;
 
-    const resposta = await fetch(`http://localhost:3031/create/${titulo_livro}/${autor}/${genero}/${data_emprestimo}/${data_devolucao}`);
+    try {
+        const resposta = await fetch(urlCreate, {
+            method: 'GET',
+        });
 
-    if(resposta.ok) {
-        alert("Emprestimo criado com sucesso!");
+        if (resposta.ok) {
+            const dados = await resposta.json();
+            console.log(dados.resposta);
+
+            window.location.href="./index.html";
+        } 
+    } catch (error) {
+        console.error('Erro ao enviar requisição:', error);
     }
 }
+
 
 //carregar Emprestimos
 async function carregarEmprestimo() {
@@ -113,4 +125,4 @@ async function updateFunc() {
 }
 
  */
-window.onload = carregarEmprestimo();
+

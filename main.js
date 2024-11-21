@@ -41,7 +41,7 @@ app.get("/index", function (req, res) {
 
 //create
 app.get("/create/:titulo_livro/:autor/:genero/:data_emprestimo/:data_devolucao", async function (req, res) {
-    const { titulo_livro, autor, genero, data_emprestimo } = req.params;
+    const { titulo_livro, autor, genero, data_emprestimo, data_devolucao } = req.params;
 
     const criarEmprestimo = await Emprestimo.create({ titulo_livro, autor, genero, data_emprestimo, data_devolucao});
   
@@ -88,6 +88,6 @@ app.get("/delete/:id", async function (req, res) {
       });
 });
 
-app.listen(3031, function () {
-    console.log("Servidor rodando na porta 3031")
+app.listen(3032, function () {
+    console.log("Servidor rodando na porta 3032")
 });

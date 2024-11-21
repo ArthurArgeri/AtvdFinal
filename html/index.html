@@ -7,12 +7,18 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css">
     <title>Lista de Emprestimos</title>
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid fundoNav">
-        <a class="navbar-brand" href="index.html">Emprestimos de livros</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Emprestimo de Livros </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active textoCriar" aria-current="page" href="create.html">Criar Emprestimo</a>
+          </div>
+        </div>
       </div>
     </nav>
 </head>
@@ -22,20 +28,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
-   		
+
+<body>
 
         <div class="divDados">
-          <table>
-            <tr>
-              <th class="thTitulo">
-                <h1>Lista de Emprestimos </h1>
-              </th>
-              <th class="thTitulo">
-                <a href="create.html"><h1> Criar Emprestimo </h1></a>
-              </th>
-            </tr>
-          </table>
-
+          <h1>Lista de Emprestimos </h1>
           <div class="linha"></div>
           <div class="divRes" id="divRes" name="divRes"></div>
         </div>
@@ -43,4 +40,5 @@
 
 </body>
 <script src="./consomeAPI.js"></script>
+<script>   window.onload = carregarEmprestimo(); </script>
 </html>
