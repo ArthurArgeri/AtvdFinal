@@ -59,10 +59,14 @@ app.get("/mostrar", async function (req, res) {
 });
 
 //mostrar um
-app.get("/mostrar/:id", async function (req, res) {
-    const { idB } = req.params;
-    const emprestimo = await Emprestimo.findAll(Sequelize.where(idB = emprestimo));
-    res.json(emprestimo)
+app.get("/mostrarUm/:id", async function (req, res) {
+    const { id } = req.params;
+      const emprestimo = await Emprestimo.findAll({
+         where: {
+             id: id 
+        }
+    });
+    res.json(emprestimo);
 
 });
 //update
@@ -96,5 +100,5 @@ app.get("/delete/:id", async function (req, res) {
 });
 
 app.listen(3031, function () {
-    console.log("Servidor rodando na porta 3032")
+    console.log("Servidor rodando na porta 3031")
 });
